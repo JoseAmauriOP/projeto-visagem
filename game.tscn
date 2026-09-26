@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://byau2ftbrovr5"]
+
+[ext_resource type="Script" uid="uid://bijfb32turmxh" path="res://game.gd" id="1_80nbo"]
+
+[node name="Game" type="Control" unique_id=1758172708]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_80nbo")
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=129862596]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Columns" type="HBoxContainer" parent="Margin" unique_id=1441477510]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="LocationsColumn" type="VBoxContainer" parent="Margin/Columns" unique_id=898448932]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LocationsTitle" type="Label" parent="Margin/Columns/LocationsColumn" unique_id=1997532719]
+layout_mode = 2
+text = "Locais"
+
+[node name="LocationButtons" type="VBoxContainer" parent="Margin/Columns/LocationsColumn" unique_id=2064122977]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CenterColumn" type="VBoxContainer" parent="Margin/Columns" unique_id=1272194575]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="NightLabel" type="Label" parent="Margin/Columns/CenterColumn" unique_id=903715078]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Noite 1 de 3"
+
+[node name="Journal" type="RichTextLabel" parent="Margin/Columns/CenterColumn" unique_id=598768090]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "O diário de pistas aparecerá aqui."
+scroll_following = true
+
+[node name="SuspectsColumn" type="VBoxContainer" parent="Margin/Columns" unique_id=1421751734]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SuspectsTitle" type="Label" parent="Margin/Columns/SuspectsColumn" unique_id=648179748]
+layout_mode = 2
+text = "Suspeitas"
+
+[node name="SuspectButtons" type="VBoxContainer" parent="Margin/Columns/SuspectsColumn" unique_id=1855594311]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AccuseButton" type="Button" parent="Margin/Columns/SuspectsColumn" unique_id=1756496905]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Acusar"
+
+[node name="AccuseOverlay" type="ColorRect" parent="." unique_id=1434485260]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7058824)
+
+[node name="CenterContainer" type="CenterContainer" parent="AccuseOverlay" unique_id=941874161]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="AccuseOverlay/CenterContainer" unique_id=1015159122]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AccuseOverlay/CenterContainer/PanelContainer" unique_id=12059250]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AccuseOverlay/CenterContainer/PanelContainer/VBoxContainer" unique_id=1752151021]
+layout_mode = 2
+text = "Quem assombra a vila?"
+
+[node name="AccuseOptions" type="VBoxContainer" parent="AccuseOverlay/CenterContainer/PanelContainer/VBoxContainer" unique_id=1382371492]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CancelButton" type="Button" parent="AccuseOverlay/CenterContainer/PanelContainer/VBoxContainer" unique_id=750994378]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cancelar"
+
+[node name="EndOverlay" type="ColorRect" parent="." unique_id=897197484]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.003921569, 0.003921569, 0.003921569, 0.7058824)
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="EndOverlay" unique_id=497534489]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="EndOverlay/CenterContainer" unique_id=1426070611]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndOverlay/CenterContainer/PanelContainer" unique_id=1652795619]
+layout_mode = 2
+
+[node name="EndTitle" type="Label" parent="EndOverlay/CenterContainer/PanelContainer/VBoxContainer" unique_id=1197065248]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EndText" type="RichTextLabel" parent="EndOverlay/CenterContainer/PanelContainer/VBoxContainer" unique_id=1806340024]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[node name="RestartButton" type="Button" parent="EndOverlay/CenterContainer/PanelContainer/VBoxContainer" unique_id=7485055]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Jogar Novamente"
