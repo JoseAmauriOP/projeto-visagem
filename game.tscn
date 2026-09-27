@@ -58,6 +58,7 @@ size_flags_horizontal = 3
 
 [node name="LocationsTitle" type="Label" parent="Margin/Columns/LocationsColumn" unique_id=1997532719]
 layout_mode = 2
+theme_type_variation = &"TitleLabel"
 text = "Locais"
 
 [node name="LocationButtons" type="VBoxContainer" parent="Margin/Columns/LocationsColumn" unique_id=2064122977]
@@ -72,6 +73,7 @@ size_flags_stretch_ratio = 2.0
 [node name="NightLabel" type="Label" parent="Margin/Columns/CenterColumn" unique_id=903715078]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"TitleLabel"
 text = "Noite 1 de 3"
 
 [node name="Journal" type="RichTextLabel" parent="Margin/Columns/CenterColumn" unique_id=598768090]
@@ -88,6 +90,7 @@ size_flags_horizontal = 3
 
 [node name="SuspectsTitle" type="Label" parent="Margin/Columns/SuspectsColumn" unique_id=648179748]
 layout_mode = 2
+theme_type_variation = &"TitleLabel"
 text = "Suspeitas"
 
 [node name="SuspectButtons" type="VBoxContainer" parent="Margin/Columns/SuspectsColumn" unique_id=1855594311]
@@ -97,6 +100,7 @@ layout_mode = 2
 [node name="AccuseButton" type="Button" parent="Margin/Columns/SuspectsColumn" unique_id=1756496905]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"AccentButton"
 text = "Acusar"
 
 [node name="AccuseOverlay" type="ColorRect" parent="." unique_id=1434485260]
@@ -126,6 +130,8 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="AccuseOverlay/CenterContainer/PanelContainer/VBoxContainer" unique_id=1752151021]
 layout_mode = 2
+theme_type_variation = &"TitleLabel"
+theme_override_font_sizes/font_size = 32
 text = "Quem assombra a vila?"
 
 [node name="AccuseOptions" type="VBoxContainer" parent="AccuseOverlay/CenterContainer/PanelContainer/VBoxContainer" unique_id=1382371492]
@@ -167,6 +173,8 @@ layout_mode = 2
 [node name="EndTitle" type="Label" parent="EndOverlay/CenterContainer/PanelContainer/VBoxContainer" unique_id=1197065248]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"TitleLabel"
+theme_override_font_sizes/font_size = 32
 
 [node name="EndText" type="RichTextLabel" parent="EndOverlay/CenterContainer/PanelContainer/VBoxContainer" unique_id=1806340024]
 unique_name_in_owner = true
@@ -178,4 +186,5 @@ fit_content = true
 [node name="RestartButton" type="Button" parent="EndOverlay/CenterContainer/PanelContainer/VBoxContainer" unique_id=7485055]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"AccentButton"
 text = "Jogar Novamente"

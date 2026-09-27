@@ -1,6 +1,40 @@
 [gd_resource type="Theme" format=3 uid="uid://8j1lrgaltbga"]
 
+[ext_resource type="FontFile" uid="uid://ksq6kpv6n7ka" path="res://fonts/Rye-Regular.ttf" id="1_5bbob"]
 [ext_resource type="FontFile" uid="uid://yp4asmftrunq" path="res://fonts/SpecialElite-Regular.ttf" id="1_sncyc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wrk87"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.8156863, 0.8627451, 0.9372549, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_buuh3"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.7254902, 0.7882353, 0.89411765, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abwnm"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.62352943, 0.7058824, 0.8392157, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xf84f"]
 content_margin_left = 8.0
@@ -18,7 +52,7 @@ content_margin_left = 8.0
 content_margin_top = 8.0
 content_margin_right = 8.0
 content_margin_bottom = 8.0
-bg_color = Color(0.1254902, 0.17254902, 0.24705882, 1)
+bg_color = Color(0.8156863, 0.8627451, 0.9372549, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
@@ -40,7 +74,7 @@ content_margin_left = 8.0
 content_margin_top = 8.0
 content_margin_right = 8.0
 content_margin_bottom = 8.0
-bg_color = Color(0.16470589, 0.21960784, 0.3137255, 1)
+bg_color = Color(0.62352943, 0.7058824, 0.8392157, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
@@ -62,9 +96,20 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="FontVariation" id="FontVariation_xdbgo"]
+base_font = ExtResource("1_sncyc")
+variation_embolden = 0.6
+
 [resource]
 default_font = ExtResource("1_sncyc")
 default_font_size = 18
+AccentButton/base_type = &"Button"
+AccentButton/colors/font_color = Color(0.043137256, 0.0627451, 0.09411765, 1)
+AccentButton/colors/font_hover_color = Color(0.043137256, 0.0627451, 0.09411765, 1)
+AccentButton/colors/font_pressed_color = Color(0.043137256, 0.0627451, 0.09411765, 1)
+AccentButton/styles/hover = SubResource("StyleBoxFlat_wrk87")
+AccentButton/styles/normal = SubResource("StyleBoxFlat_buuh3")
+AccentButton/styles/pressed = SubResource("StyleBoxFlat_abwnm")
 Button/colors/font_color = Color(0.84313726, 0.8666667, 0.9098039, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
 Button/colors/font_hover_color = Color(1, 1, 1, 1)
@@ -76,3 +121,8 @@ Button/styles/pressed = SubResource("StyleBoxFlat_035cw")
 Label/colors/font_color = Color(0.84313726, 0.8666667, 0.9098039, 1)
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_w7w6h")
 RichTextLabel/colors/default_color = Color(0.84313726, 0.8666667, 0.9098039, 1)
+RichTextLabel/fonts/bold_font = SubResource("FontVariation_xdbgo")
+TitleLabel/base_type = &"Label"
+TitleLabel/colors/font_color = Color(0.7254902, 0.7882353, 0.89411765, 1)
+TitleLabel/font_sizes/font_size = 24
+TitleLabel/fonts/font = ExtResource("1_5bbob")
