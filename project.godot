@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[gui]
+
+theme/custom="uid://8j1lrgaltbga"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
@@ -27,3 +31,4 @@ window/stretch/aspect="expand"
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+environment/defaults/default_clear_color=Color(0.043137256, 0.0627451, 0.09411765, 1)
