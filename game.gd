@@ -25,9 +25,10 @@ const TITLE_SCENE = "res://title.tscn"
 
 var culprit_id: String = ""
 var current_night: int = 1
-
+var current_case: Dictionary
 
 func _ready() -> void:
+	current_case = GameData.CASES["barateiro"] 
 	create_location_buttons()
 	create_suspect_buttons()
 	create_accuse_options()
@@ -48,7 +49,7 @@ func _ready() -> void:
 # ========== LÓGICA ==========
 
 func start_game() -> void:
-	culprit_id = GameData.LEGENDS.keys().pick_random()
+	culprit_id = current_case["suspects"].pick_random()	
 	current_night = 1
 	journal.clear()
 	update_night_label()
@@ -90,14 +91,14 @@ func go_to_menu() -> void:
 # ========== INTERFACE ==========
 
 func create_location_buttons() -> void:
-	for loc_id in GameData.LOCATIONS:
+	for loc_id in current_case["locations"]:
 		var button = Button.new()
 		button.text = GameData.LOCATIONS[loc_id]["name"]
 		button.pressed.connect(investigate.bind(loc_id))
 		location_buttons.add_child(button)
 
 func create_suspect_buttons() -> void:
-	for legend_id in GameData.LEGENDS:
+	for legend_id in current_case["suspects"]:
 		var legend_name = GameData.LEGENDS[legend_id]["name"]
 		var button = Button.new()
 		button.text = legend_name
@@ -127,7 +128,7 @@ func end_investigations() -> void:
 	open_accusation(false)
 	
 func create_accuse_options() -> void:
-	for legend_id in GameData.LEGENDS:
+	for legend_id in current_case["suspects"]:
 		var button = Button.new()
 		button.text = GameData.LEGENDS[legend_id]["name"]
 		button.pressed.connect(accuse.bind(legend_id))
@@ -152,6 +153,6 @@ func show_ending(won: bool) -> void:
 
 func fill_legends_text() -> void:
 	legends_text.clear()
-	for legend_id in GameData.LEGENDS:
+	for legend_id in current_case["suspects"]:
 		var legend = GameData.LEGENDS[legend_id]
 		legends_text.append_text("[b]%s[/b]\n%s\n\n" % [legend["name"], legend["profile"]])
