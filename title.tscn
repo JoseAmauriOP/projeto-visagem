@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://dy1iy0mnaisxs"]
+
+[ext_resource type="Script" uid="uid://bglc0l1woqdgy" path="res://title.gd" id="1_oyqm6"]
+[ext_resource type="PackedScene" uid="uid://r7nui0qht6mx" path="res://background.tscn" id="2_kpexm"]
+
+[node name="Title" type="Control" unique_id=153920620]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oyqm6")
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" parent="." unique_id=645475645 instance=ExtResource("2_kpexm")]
+layout_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=780669784]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=437417648]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="GameTitle" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1538944287]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+theme_override_font_sizes/font_size = 56
+text = "Visagens do Sertão"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=405000111]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"AccentButton"
+text = "Começar"
+
+[node name="HowToButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=66169767]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Como jogar"
+
+[node name="HowToOverlay" type="ColorRect" parent="." unique_id=473465610]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.043137256, 0.0627451, 0.09411765, 0.78431374)
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="HowToOverlay" unique_id=893558473]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="HowToOverlay/CenterContainer" unique_id=793148852]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HowToOverlay/CenterContainer/PanelContainer" unique_id=1063463193]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HowToOverlay/CenterContainer/PanelContainer/VBoxContainer" unique_id=389049680]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+theme_override_font_sizes/font_size = 32
+text = "Como jogar"
+
+[node name="HowToText" type="RichTextLabel" parent="HowToOverlay/CenterContainer/PanelContainer/VBoxContainer" unique_id=1773815287]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "Uma visagem está assombrando a vila. Descubra qual delas é a culpada antes que o sol nasça.
+
+[b]Investigue:[/b] a cada noite, escolha um local da vila. A pista revela se a visagem tem ou não aquela característica.
+
+[b]Deduza:[/b] clique nas suspeitas para riscar as que não combinam com as pistas.
+
+[b]Acuse:[/b] você pode acusar a qualquer momento. Depois da terceira noite, a acusação é obrigatória.
+
+Acerte, e a vila volta a ter paz. Erre, e a visagem vence."
+fit_content = true
+
+[node name="CloseButton" type="Button" parent="HowToOverlay/CenterContainer/PanelContainer/VBoxContainer" unique_id=878485814]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Voltar"
