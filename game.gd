@@ -22,6 +22,10 @@ const TITLE_SCENE = "res://title.tscn"
 @onready var legends_overlay: ColorRect = %LegendsOverlay
 @onready var legends_text: RichTextLabel = %LegendsText
 @onready var close_legends_button: Button = %CloseLegendsButton
+@onready var intro_overlay: ColorRect = %IntroOverlay
+@onready var case_title: Label = %CaseTitle
+@onready var intro_text: RichTextLabel = %IntroText
+@onready var start_investigation_button: Button = %StartInvestigationButton
 
 var culprit_id: String = ""
 var current_night: int = 1
@@ -33,6 +37,7 @@ func _ready() -> void:
 	create_suspect_buttons()
 	create_accuse_options()
 	accuse_button.pressed.connect(open_accusation.bind(true))
+	start_investigation_button.pressed.connect(intro_overlay.hide)
 	cancel_button.pressed.connect(close_accusation)
 	restart_button.pressed.connect(restart_game)
 	back_to_menu_button.pressed.connect(go_to_menu)
@@ -55,6 +60,7 @@ func start_game() -> void:
 	update_night_label()
 	if DEBUG:
 		print("[DEBUG] Culpada sorteada: ", culprit_id)
+	show_intro()
 
 func culprit_has_feature(feature_id: String) -> bool:
 	return feature_id in GameData.LEGENDS[culprit_id]["features"]
@@ -156,3 +162,8 @@ func fill_legends_text() -> void:
 	for legend_id in current_case["suspects"]:
 		var legend = GameData.LEGENDS[legend_id]
 		legends_text.append_text("[b]%s[/b]\n%s\n\n" % [legend["name"], legend["profile"]])
+
+func show_intro() -> void:
+	case_title.text = current_case["title"]
+	intro_text.text = current_case["intro"]
+	intro_overlay.show()

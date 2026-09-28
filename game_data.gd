@@ -124,7 +124,7 @@ const CASES = {
 	"barateiro": {
 		"title": "Caso 1: Vila Barateiro",
 		"playable": true,
-		"intro": "Você é investigador de visagens, chamado sempre que o sertão perde o sossego.\n\nDesta vez, o recado veio da Vila Barateiro. Há dias os moradores não dormem direito. Cada um conta uma história diferente, e ninguém concorda sobre o que anda assombrando o lugar.\n\nVocê tem três noites para descobrir qual visagem está na vila, antes que o medo faça o povo ir embora.",
+		"intro": "Você é investigador de visagens, chamado sempre que o sertão perde o sossego.\n\nDesta vez, o recado veio da Vila Barateiro. Há dias os moradores não dormem direito. Cada um conta uma história diferente, e ninguém concorda sobre o que anda assombrando o lugar.\n\nVocê tem três noites para descobrir qual visagem está na vila, antes que o medo faça o povo ir embora.\n\n[i]Escolha um local da vila para começar a investigar. Cada pista ajuda a descartar suspeitas, e cada investigação gasta uma noite.[/i]",
 		"locations": ["rezadeira", "janela", "curral", "enfermo", "mata", "estrada", "capela"],
 		"suspects": ["amortalhado", "goiabao", "isaura", "rasga_mortalha", "fulozinha"],
 	},

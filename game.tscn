@@ -226,3 +226,46 @@ text = "Jogar Novamente"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Voltar ao menu"
+
+[node name="IntroOverlay" type="ColorRect" parent="." unique_id=88753643]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.043137256, 0.0627451, 0.09411765, 0.8627451)
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="IntroOverlay" unique_id=1169536316]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="IntroOverlay/CenterContainer" unique_id=462529822]
+layout_mode = 2
+
+[node name="CaseTitle" type="Label" parent="IntroOverlay/CenterContainer/VBoxContainer" unique_id=414074367]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+theme_override_font_sizes/font_size = 32
+
+[node name="IntroText" type="RichTextLabel" parent="IntroOverlay/CenterContainer/VBoxContainer" unique_id=2118272770]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[node name="StartInvestigationButton" type="Button" parent="IntroOverlay/CenterContainer/VBoxContainer" unique_id=976168569]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"AccentButton"
+text = "Começar investigação"
