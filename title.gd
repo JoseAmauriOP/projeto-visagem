@@ -1,6 +1,6 @@
 extends Control
 
-const GAME_SCENE = "res://game.tscn"
+const CASE_SELECT_SCENE = "res://case_select.tscn"
 
 @onready var start_button: Button = %StartButton
 @onready var how_to_button: Button = %HowToButton
@@ -15,4 +15,4 @@ func _ready() -> void:
 	how_to_overlay.hide()
 
 func start_game() -> void:
-	get_tree().change_scene_to_file(GAME_SCENE)
+	get_tree().change_scene_to_file(CASE_SELECT_SCENE)

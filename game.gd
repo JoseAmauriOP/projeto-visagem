@@ -28,7 +28,7 @@ var current_night: int = 1
 var current_case: Dictionary
 
 func _ready() -> void:
-	current_case = GameData.CASES["barateiro"] 
+	current_case = GameData.CASES[CaseManager.selected_case_id]
 	create_location_buttons()
 	create_suspect_buttons()
 	create_accuse_options()
