@@ -2,6 +2,7 @@ extends Control
 
 const MAX_NIGHTS = 3
 const DEBUG = false
+const TITLE_SCENE = "res://title.tscn"
 
 @onready var location_buttons: VBoxContainer = %LocationButtons
 @onready var suspect_buttons: VBoxContainer = %SuspectButtons
@@ -15,6 +16,7 @@ const DEBUG = false
 @onready var end_title: Label = %EndTitle
 @onready var end_text: RichTextLabel = %EndText
 @onready var restart_button: Button = %RestartButton
+@onready var back_to_menu_button: Button = %BackToMenuButton
 
 var culprit_id: String = ""
 var current_night: int = 1
@@ -27,6 +29,7 @@ func _ready() -> void:
 	accuse_button.pressed.connect(open_accusation.bind(true))
 	cancel_button.pressed.connect(close_accusation)
 	restart_button.pressed.connect(restart_game)
+	back_to_menu_button.pressed.connect(go_to_menu)
 	accuse_overlay.hide()
 	end_overlay.hide()
 	start_game()
@@ -68,6 +71,9 @@ func accuse(legend_id: String) -> void:
 
 func restart_game() -> void:
 	get_tree().reload_current_scene()
+	
+func go_to_menu() -> void:
+	get_tree().change_scene_to_file(TITLE_SCENE)
 
 # ========== INTERFACE ==========
 

@@ -167,3 +167,8 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"AccentButton"
 text = "Jogar Novamente"
+
+[node name="BackToMenuButton" type="Button" parent="EndOverlay/CenterContainer/PanelContainer/VBoxContainer" unique_id=1039649879]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Voltar ao menu"
