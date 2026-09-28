@@ -76,6 +76,11 @@ text = "Suspeitas"
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="LegendsButton" type="Button" parent="Margin/Columns/SuspectsColumn" unique_id=1107150658]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Fichas das lendas"
+
 [node name="AccuseButton" type="Button" parent="Margin/Columns/SuspectsColumn" unique_id=1756496905]
 unique_name_in_owner = true
 layout_mode = 2
@@ -117,10 +122,59 @@ text = "Quem assombra a vila?"
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="AccuseLegendsButton" type="Button" parent="AccuseOverlay/CenterContainer/PanelContainer/VBoxContainer" unique_id=1921598047]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Ver fichas"
+
 [node name="CancelButton" type="Button" parent="AccuseOverlay/CenterContainer/PanelContainer/VBoxContainer" unique_id=750994378]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Cancelar"
+
+[node name="LegendsOverlay" type="ColorRect" parent="." unique_id=1327274210]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.043137256, 0.0627451, 0.09411765, 0.78431374)
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="LegendsOverlay" unique_id=696046108]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="LegendsOverlay/CenterContainer" unique_id=12924219]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LegendsOverlay/CenterContainer/PanelContainer" unique_id=1125713518]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LegendsOverlay/CenterContainer/PanelContainer/VBoxContainer" unique_id=355928808]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+theme_override_font_sizes/font_size = 32
+text = "Fichas das lendas"
+
+[node name="LegendsText" type="RichTextLabel" parent="LegendsOverlay/CenterContainer/PanelContainer/VBoxContainer" unique_id=174495188]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(700, 400)
+layout_mode = 2
+bbcode_enabled = true
+
+[node name="CloseLegendsButton" type="Button" parent="LegendsOverlay/CenterContainer/PanelContainer/VBoxContainer" unique_id=1693604154]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Voltar"
 
 [node name="EndOverlay" type="ColorRect" parent="." unique_id=897197484]
 unique_name_in_owner = true

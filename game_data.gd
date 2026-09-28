@@ -5,26 +5,31 @@ const LEGENDS = {
 		"name": "O Amortalhado",
 		"features": ["lua_cheia", "morte", "vulto", "religioso"],
 		"story": "Lenda da Serra da Ibiapaba, contada em Tianguá e Ubajara. Um homem que desrespeitou os pais foi condenado a carregar um morto nas costas por cemitérios, em sete noites de lua cheia. Quem zomba dele pode herdar a maldição.",
+		"profile": "Na Serra da Ibiapaba, contam de um homem condenado a vagar por cemitérios carregando um morto nas costas. Só cumpre sua penitência em noites de lua cheia, rezando o rosário em silêncio. Quem cruza com ele na estrada vê um vulto curvado e sente que a morte passou perto.",
 	},
 	"goiabao": {
 		"name": "O Goiabão",
 		"features": ["arvore", "vulto", "religioso"],
 		"story": "Causo de Missão Velha, no Cariri. O espírito de um religioso aparecia gigante, sentado no muro do antigo ginásio, perto do pé de goiaba onde teria morrido. Dizem que sumiu quando a árvore foi cortada.",
+		"profile": "Em Missão Velha, no Cariri, o espírito de um antigo religioso aparece gigante, sentado num muro, com uma perna em cada rua. Dizem que está preso ao pé de goiaba onde gostava de ficar. Não faz barulho nenhum e não escolhe noite: só observa, quieto, quem passa por baixo.",
 	},
 	"isaura": {
 		"name": "Isaura",
 		"features": ["lua_cheia", "som", "animais", "arvore"],
 		"story": "Lenda da Lagoa do Urubu, em Fortaleza. Os moradores contam que uma cobra gigante vive na lagoa, faz sumir os animais da beira d'água e ronca nas noites de lua cheia.",
+		"profile": "Na Lagoa do Urubu, em Fortaleza, vive uma cobra gigante que ninguém consegue ver direito. Os animais que pastam na beira d'água somem sem deixar rastro, e nas noites de lua cheia se ouve o seu ronco vindo da lagoa. Dizem que ela se enrosca nos coqueiros da margem.",
 	},
 	"rasga_mortalha": {
 		"name": "Rasga-mortalha",
 		"features": ["som", "morte", "vulto"],
 		"story": "Crença espalhada por todo o Ceará: o grito dessa coruja, parecido com pano rasgando, anunciaria uma morte. Na verdade, é a suindara, uma ave inofensiva que controla ratos e ainda é perseguida por causa do mito.",
+		"profile": "Em todo o Ceará se conhece o grito da rasga-mortalha: um som de pano sendo rasgado em cima do telhado. Quem vê o vulto branco passando baixo no escuro já sabe que é agouro de morte para algum doente da casa. Os bichos do terreiro nem se mexem quando ela passa.",
 	},
 	"fulozinha": {
 		"name": "Comadre Fulozinha",
 		"features": ["som", "animais", "arvore"],
 		"story": "Protetora da mata no folclore nordestino. Trança a crina dos cavalos em nós que ninguém desfaz e engana caçadores com seu assobio. Quem leva mingau, fumo ou mel ganha a simpatia dela.",
+		"profile": "Protetora das matas do Nordeste, a Comadre Fulozinha vive entre as árvores e trança a crina dos cavalos em nós que ninguém desfaz. Seu assobio engana: parece longe quando está perto. É muito difícil vê-la, e ela não liga para a lua, porque anda em qualquer noite escura.",
 	},
 }
 

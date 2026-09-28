@@ -17,6 +17,11 @@ const TITLE_SCENE = "res://title.tscn"
 @onready var end_text: RichTextLabel = %EndText
 @onready var restart_button: Button = %RestartButton
 @onready var back_to_menu_button: Button = %BackToMenuButton
+@onready var legends_button: Button = %LegendsButton
+@onready var accuse_legends_button: Button = %AccuseLegendsButton
+@onready var legends_overlay: ColorRect = %LegendsOverlay
+@onready var legends_text: RichTextLabel = %LegendsText
+@onready var close_legends_button: Button = %CloseLegendsButton
 
 var culprit_id: String = ""
 var current_night: int = 1
@@ -32,6 +37,11 @@ func _ready() -> void:
 	back_to_menu_button.pressed.connect(go_to_menu)
 	accuse_overlay.hide()
 	end_overlay.hide()
+	fill_legends_text()
+	legends_button.pressed.connect(legends_overlay.show)
+	accuse_legends_button.pressed.connect(legends_overlay.show)
+	close_legends_button.pressed.connect(legends_overlay.hide)
+	legends_overlay.hide()
 	start_game()
 
 
@@ -74,6 +84,8 @@ func restart_game() -> void:
 	
 func go_to_menu() -> void:
 	get_tree().change_scene_to_file(TITLE_SCENE)
+	
+
 
 # ========== INTERFACE ==========
 
@@ -137,3 +149,9 @@ func show_ending(won: bool) -> void:
 		end_title.text = "A visagem venceu..."
 	end_text.text = "Era [b]%s[/b].\n\n%s" % [culprit["name"], culprit["story"]]
 	end_overlay.show()
+
+func fill_legends_text() -> void:
+	legends_text.clear()
+	for legend_id in GameData.LEGENDS:
+		var legend = GameData.LEGENDS[legend_id]
+		legends_text.append_text("[b]%s[/b]\n%s\n\n" % [legend["name"], legend["profile"]])
