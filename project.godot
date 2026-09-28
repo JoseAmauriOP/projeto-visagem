@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="projeto visagem"
+config/name="Visagens do Sertão"
 run/main_scene="uid://byau2ftbrovr5"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"

@@ -2,8 +2,6 @@ extends Control
 
 const MAX_NIGHTS = 3
 const DEBUG = false
-const BG_ZOOM = 1.08
-const BG_ZOOM_TIME = 15.0
 
 @onready var location_buttons: VBoxContainer = %LocationButtons
 @onready var suspect_buttons: VBoxContainer = %SuspectButtons
@@ -17,7 +15,6 @@ const BG_ZOOM_TIME = 15.0
 @onready var end_title: Label = %EndTitle
 @onready var end_text: RichTextLabel = %EndText
 @onready var restart_button: Button = %RestartButton
-@onready var background: TextureRect = $Background
 
 var culprit_id: String = ""
 var current_night: int = 1
@@ -33,7 +30,6 @@ func _ready() -> void:
 	accuse_overlay.hide()
 	end_overlay.hide()
 	start_game()
-	start_background_zoom()
 
 
 # ========== LÓGICA ==========
@@ -135,15 +131,3 @@ func show_ending(won: bool) -> void:
 		end_title.text = "A visagem venceu..."
 	end_text.text = "Era [b]%s[/b].\n\n%s" % [culprit["name"], culprit["story"]]
 	end_overlay.show()
-
-func start_background_zoom() -> void:
-	update_background_pivot()
-	background.resized.connect(update_background_pivot)
-	var tween = create_tween().set_loops()
-	tween.set_trans(Tween.TRANS_SINE)
-	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(background, "scale", Vector2(BG_ZOOM, BG_ZOOM), BG_ZOOM_TIME)
-	tween.tween_property(background, "scale", Vector2.ONE, BG_ZOOM_TIME)
-
-func update_background_pivot() -> void:
-	background.pivot_offset = background.size / 2

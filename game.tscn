@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://byau2ftbrovr5"]
 
 [ext_resource type="Script" uid="uid://bijfb32turmxh" path="res://game.gd" id="1_80nbo"]
-[ext_resource type="Texture2D" uid="uid://geqd772lfkyp" path="res://images/fundo-projeto-visagem.png" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://r7nui0qht6mx" path="res://background.tscn" id="2_e2o6t"]
 
 [node name="Game" type="Control" unique_id=1758172708]
 layout_mode = 3
@@ -12,29 +12,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_80nbo")
 
-[node name="Background" type="TextureRect" parent="." unique_id=192406493]
+[node name="Background" parent="." unique_id=645475645 instance=ExtResource("2_e2o6t")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("2_e2o6t")
-expand_mode = 1
-stretch_mode = 6
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=667694401]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.043137256, 0.0627451, 0.09411765, 0.5882353)
-metadata/_edit_use_anchors_ = true
 
 [node name="Margin" type="MarginContainer" parent="." unique_id=129862596]
 layout_mode = 1
