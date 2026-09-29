@@ -124,9 +124,37 @@ const CASES = {
 	"barateiro": {
 		"title": "Caso 1: Vila Barateiro",
 		"playable": true,
-		"intro": "Você é investigador de visagens, chamado sempre que o sertão perde o sossego.\n\nDesta vez, o recado veio da Vila Barateiro. Há dias os moradores não dormem direito. Cada um conta uma história diferente, e ninguém concorda sobre o que anda assombrando o lugar.\n\nVocê tem três noites para descobrir qual visagem está na vila, antes que o medo faça o povo ir embora.\n\n[i]Escolha um local da vila para começar a investigar. Cada pista ajuda a descartar suspeitas, e cada investigação gasta uma noite.[/i]",
+				"intro": "Você é investigador de visagens, chamado sempre que o sertão perde o sossego.\n\nDesta vez, o recado veio da Vila Barateiro. Há dias os moradores não dormem direito, e cada um jura que é uma visagem diferente: [b]O Amortalhado[/b], [b]O Goiabão[/b], [b]Isaura[/b], [b]Rasga-mortalha[/b] ou [b]Comadre Fulozinha[/b]. Ninguém sabe qual delas anda assombrando o lugar.\n\nVocê tem três noites para descobrir qual visagem está na vila, antes que o medo faça o povo ir embora.\n\n[i]Escolha um local da vila para começar a investigar. Cada pista ajuda a descartar suspeitas, e cada investigação gasta uma noite.[/i]",
 		"locations": ["rezadeira", "janela", "curral", "enfermo", "mata", "estrada", "capela"],
 		"suspects": ["amortalhado", "goiabao", "isaura", "rasga_mortalha", "fulozinha"],
+		"partner": {
+			"name": "Juracy",
+			"lines": {
+				"start": [
+					"Juracy, às suas ordens! De dia eu vendo ata na feira, mas de noite ninguém dorme mais por aqui. Como poss ajudar, investigador?",
+					"Chegou em boa hora, investigador. Desde que essa visagem apareceu, nem ata eu consigo vender direito. Vamos começar por onde?",
+				],
+				"found": [
+					"Vixe! Tem coisa aí, investigador. Anota bem isso.",
+					"Eita, eu sabia que tinha algo errado. Dá uma olhada nas fichas e vê quem combina.",
+					"Oxe, arrepiou até os braços. Essa pista vale ouro.",
+				],
+				"nothing": [
+					"Nadinha por aqui. Mas pista de nada também é pista, viu? Serve pra descartar.",
+					"Tudo quieto. Quem combinasse com isso aí já pode sair da lista.",
+					"Nem sinal. Às vezes o que não aparece diz muito.",
+				],
+				"dawn": [
+					"O sol já tá saindo, investigador. Agora é com você: quem é que tá assombrando a Barateiro?",
+				],
+				"win": [
+					"Ah caba bom! Agora sim a vila vai dormir sossegada. Passa lá na feira que a ata é por minha conta!",
+				],
+				"lose": [
+					"Vixe Maria... acho que não era essa, não. Deus nos proteja das próximas noites.",
+				],
+			},
+		},
 	},
 	"alto_cruzeiro": {
 		"title": "Caso 2: Alto do Cruzeiro",

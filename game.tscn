@@ -63,6 +63,24 @@ bbcode_enabled = true
 text = "O diário de pistas aparecerá aqui."
 scroll_following = true
 
+[node name="PartnerBox" type="PanelContainer" parent="Margin/Columns/CenterColumn" unique_id=1399511618]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/Columns/CenterColumn/PartnerBox" unique_id=1676982172]
+layout_mode = 2
+
+[node name="PartnerName" type="Label" parent="Margin/Columns/CenterColumn/PartnerBox/VBoxContainer" unique_id=1130654098]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+
+[node name="PartnerLine" type="RichTextLabel" parent="Margin/Columns/CenterColumn/PartnerBox/VBoxContainer" unique_id=436171538]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
 [node name="SuspectsColumn" type="VBoxContainer" parent="Margin/Columns" unique_id=1421751734]
 layout_mode = 2
 size_flags_horizontal = 3

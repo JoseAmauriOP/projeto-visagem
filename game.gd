@@ -3,6 +3,9 @@ extends Control
 const MAX_NIGHTS = 3
 const DEBUG = false
 const TITLE_SCENE = "res://title.tscn"
+const PARTNER_BASE_TIME = 2.0
+const PARTNER_TIME_PER_CHAR = 0.06
+const PARTNER_FADE_TIME = 0.4
 
 @onready var location_buttons: VBoxContainer = %LocationButtons
 @onready var suspect_buttons: VBoxContainer = %SuspectButtons
@@ -26,18 +29,23 @@ const TITLE_SCENE = "res://title.tscn"
 @onready var case_title: Label = %CaseTitle
 @onready var intro_text: RichTextLabel = %IntroText
 @onready var start_investigation_button: Button = %StartInvestigationButton
+@onready var partner_name: Label = %PartnerName
+@onready var partner_line: RichTextLabel = %PartnerLine
+@onready var partner_box: PanelContainer = %PartnerBox
 
 var culprit_id: String = ""
 var current_night: int = 1
 var current_case: Dictionary
+var partner_tween: Tween
 
 func _ready() -> void:
 	current_case = GameData.CASES[CaseManager.selected_case_id]
+	partner_name.text = current_case["partner"]["name"]
 	create_location_buttons()
 	create_suspect_buttons()
 	create_accuse_options()
 	accuse_button.pressed.connect(open_accusation.bind(true))
-	start_investigation_button.pressed.connect(intro_overlay.hide)
+	start_investigation_button.pressed.connect(start_investigation)
 	cancel_button.pressed.connect(close_accusation)
 	restart_button.pressed.connect(restart_game)
 	back_to_menu_button.pressed.connect(go_to_menu)
@@ -48,6 +56,7 @@ func _ready() -> void:
 	accuse_legends_button.pressed.connect(legends_overlay.show)
 	close_legends_button.pressed.connect(legends_overlay.hide)
 	legends_overlay.hide()
+	partner_box.modulate.a = 0.0
 	start_game()
 
 
@@ -67,12 +76,14 @@ func culprit_has_feature(feature_id: String) -> bool:
 
 func investigate(loc_id: String) -> void:
 	var location = GameData.LOCATIONS[loc_id]
+	var has_feature = culprit_has_feature(location["feature"])
 	var clue: String
-	if culprit_has_feature(location["feature"]):
+	if has_feature:
 		clue = location["found"].pick_random()
 	else:
 		clue = location["nothing"].pick_random()
-	add_journal_entry(location["name"], clue)	
+	add_journal_entry(location["name"], clue)
+	partner_say("found" if has_feature else "nothing")
 	advance_night()
 
 func advance_night() -> void:
@@ -92,7 +103,9 @@ func restart_game() -> void:
 func go_to_menu() -> void:
 	get_tree().change_scene_to_file(TITLE_SCENE)
 	
-
+func start_investigation() -> void:
+	intro_overlay.hide()
+	partner_say("start")
 
 # ========== INTERFACE ==========
 
@@ -131,6 +144,8 @@ func end_investigations() -> void:
 	journal.append_text("[i]O sol está nascendo. Revise as pistas e clique em Acusar para apontar a culpada.[/i]\n")
 	for button in location_buttons.get_children():
 		button.disabled = true
+	partner_line.append_text("\n\n" + get_partner_line("dawn"))
+	show_partner_box()
 	
 func create_accuse_options() -> void:
 	for legend_id in current_case["suspects"]:
@@ -155,6 +170,8 @@ func show_ending(won: bool) -> void:
 		end_title.text = "A visagem venceu..."
 	end_text.text = "Era [b]%s[/b].\n\n%s" % [culprit["name"], culprit["story"]]
 	end_overlay.show()
+	var partner = current_case["partner"]
+	end_text.text += "\n\n[b]%s:[/b] %s" % [partner["name"], get_partner_line("win" if won else "lose")]
 
 func fill_legends_text() -> void:
 	legends_text.clear()
@@ -166,3 +183,19 @@ func show_intro() -> void:
 	case_title.text = current_case["title"]
 	intro_text.text = current_case["intro"]
 	intro_overlay.show()
+
+func get_partner_line(moment: String) -> String:
+	return current_case["partner"]["lines"][moment].pick_random()
+
+func partner_say(moment: String) -> void:
+	partner_line.text = get_partner_line(moment)
+	show_partner_box()
+
+func show_partner_box() -> void:
+	if partner_tween:
+		partner_tween.kill()
+	var read_time = PARTNER_BASE_TIME + partner_line.get_parsed_text().length() * PARTNER_TIME_PER_CHAR
+	partner_tween = create_tween()
+	partner_tween.tween_property(partner_box, "modulate:a", 1.0, PARTNER_FADE_TIME)
+	partner_tween.tween_interval(read_time)
+	partner_tween.tween_property(partner_box, "modulate:a", 0.0, PARTNER_FADE_TIME)
