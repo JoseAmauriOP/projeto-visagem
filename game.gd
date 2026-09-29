@@ -72,7 +72,7 @@ func investigate(loc_id: String) -> void:
 		clue = location["found"].pick_random()
 	else:
 		clue = location["nothing"].pick_random()
-	add_journal_entry(location["name"], clue)
+	add_journal_entry(location["name"], clue)	
 	advance_night()
 
 func advance_night() -> void:
@@ -128,10 +128,9 @@ func add_journal_entry(place_name: String, clue: String) -> void:
 
 func end_investigations() -> void:
 	night_label.text = "Amanhecer"
-	journal.append_text("[i]O sol está nascendo. Chegou a hora de apontar a culpada.[/i]\n")
+	journal.append_text("[i]O sol está nascendo. Revise as pistas e clique em Acusar para apontar a culpada.[/i]\n")
 	for button in location_buttons.get_children():
 		button.disabled = true
-	open_accusation(false)
 	
 func create_accuse_options() -> void:
 	for legend_id in current_case["suspects"]:
