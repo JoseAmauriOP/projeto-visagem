@@ -161,3 +161,35 @@ const CASES = {
 		"playable": false,
 	},
 }
+
+const SCORE_WIN = 100
+const SCORE_PER_SAVED_NIGHT = 50
+const SCORE_PENALTY = 50
+const PENALTY_FROM_RANK = 2
+const RANKS = [
+	{
+		"name": "Forasteiro",
+		"points": 0,
+		"line": "Chegou há pouco, e ninguém sabe o seu nome.",
+	},
+	{
+		"name": "Conhecido",
+		"points": 200,
+		"line": "Os vizinhos já batem na sua porta quando algo estranho acontece.",
+	},
+	{
+		"name": "Compadre",
+		"points": 600,
+		"line": "A vila te trata como da família, e comenta cada acusação que você faz.",
+	},
+	{
+		"name": "Conselheiro",
+		"points": 1200,
+		"line": "Gente de outras vilas vem de longe pedir o seu conselho.",
+	},
+	{
+		"name": "Padrinho",
+		"points": 2000,
+		"line": "Seu nome corre o sertão, de feira em feira.",
+	},
+]

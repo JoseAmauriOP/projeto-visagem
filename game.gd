@@ -37,6 +37,7 @@ var culprit_id: String = ""
 var current_night: int = 1
 var current_case: Dictionary
 var partner_tween: Tween
+var investigations_done: int = 0
 
 func _ready() -> void:
 	current_case = GameData.CASES[CaseManager.selected_case_id]
@@ -65,6 +66,7 @@ func _ready() -> void:
 func start_game() -> void:
 	culprit_id = current_case["suspects"].pick_random()	
 	current_night = 1
+	investigations_done = 0
 	journal.clear()
 	update_night_label()
 	if DEBUG:
@@ -75,6 +77,7 @@ func culprit_has_feature(feature_id: String) -> bool:
 	return feature_id in GameData.LEGENDS[culprit_id]["features"]
 
 func investigate(loc_id: String) -> void:
+	investigations_done += 1
 	var location = GameData.LOCATIONS[loc_id]
 	var has_feature = culprit_has_feature(location["feature"])
 	var clue: String
@@ -95,7 +98,18 @@ func advance_night() -> void:
 
 func accuse(legend_id: String) -> void:
 	var won = legend_id == culprit_id
-	show_ending(won)
+	var old_rank = ProgressManager.get_rank_index()
+	var points = calculate_points(won, old_rank)
+	ProgressManager.add_points(points)
+	show_ending(won, points, old_rank)
+
+func calculate_points(won: bool, rank_index: int) -> int:
+	if won:
+		var saved_nights = MAX_NIGHTS - investigations_done
+		return GameData.SCORE_WIN + saved_nights * GameData.SCORE_PER_SAVED_NIGHT
+	if rank_index >= GameData.PENALTY_FROM_RANK:
+		return -GameData.SCORE_PENALTY
+	return 0
 
 func restart_game() -> void:
 	get_tree().reload_current_scene()
@@ -161,7 +175,7 @@ func open_accusation(can_cancel: bool) -> void:
 func close_accusation() -> void:
 	accuse_overlay.hide()
 
-func show_ending(won: bool) -> void:
+func show_ending(won: bool, points: int, old_rank: int) -> void:
 	accuse_overlay.hide()
 	var culprit = GameData.LEGENDS[culprit_id]
 	if won:
@@ -171,6 +185,7 @@ func show_ending(won: bool) -> void:
 	end_text.text = "Era [b]%s[/b].\n\n%s" % [culprit["name"], culprit["story"]]
 	end_overlay.show()
 	var partner = current_case["partner"]
+	end_text.text += get_score_text(points, old_rank)
 	end_text.text += "\n\n[b]%s:[/b] %s" % [partner["name"], get_partner_line("win" if won else "lose")]
 
 func fill_legends_text() -> void:
@@ -199,3 +214,11 @@ func show_partner_box() -> void:
 	partner_tween.tween_property(partner_box, "modulate:a", 1.0, PARTNER_FADE_TIME)
 	partner_tween.tween_interval(read_time)
 	partner_tween.tween_property(partner_box, "modulate:a", 0.0, PARTNER_FADE_TIME)
+
+func get_score_text(points: int, old_rank: int) -> String:
+	var new_rank = ProgressManager.get_rank_index()
+	var rank = GameData.RANKS[new_rank]
+	var text = "\n\n[b]%+d pontos[/b]  ·  Total: %d  ·  Patente: %s" % [points, ProgressManager.total_points, rank["name"]]
+	if new_rank > old_rank:
+		text += "\n\n[b]Nova patente: %s![/b]\n[i]%s[/i]" % [rank["name"], rank["line"]]
+	return text
